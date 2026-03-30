@@ -1,0 +1,43 @@
+body {
+    font-family: Arial;
+    background: linear-gradient(to right, #f3caf9, #edc5c5);
+    text-align: center;
+    margin: 0;
+}
+
+header {
+    background: #9d8ac2;
+    padding: 20px;
+}
+
+.profile {
+    width: 150px;
+    border-radius: 50%;
+    margin: 20px;
+}
+img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+section {
+    padding: 20px;
+}
+
+input, textarea {
+    width: 80%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    border: 1px solid #9c6f6f;
+}
+
+button {
+    padding: 10px 20px;
+    background: #9954ae;
+    color: rgb(243, 140, 212);
+    border: none;
+    border-radius: 10px;
+}
