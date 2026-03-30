@@ -41,3 +41,13 @@ button {
     border: none;
     border-radius: 10px;
 }
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+button:hover {
+  background-color: #7b5fc9;
+  cursor: pointer;
+}
