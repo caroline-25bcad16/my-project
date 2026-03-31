@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Caroline Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+  <title>Caroline Portfolio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<header>
+  <header>
     <h1>Caroline Buela J</h1>
     <p>Bachelor of Computer Science Student</p>
-</header>
+  </header>
 
-<section>
+  <section>
+
     <img src="myphoto.jpg" alt="My Photo" width="150">
 
     <h2>About Me</h2>
@@ -22,36 +24,64 @@
 
     <h2>Skills</h2>
     <ul>
-        <li>HTML</li>
-        <li>Python</li>
-        <li>C</li>
-        <li>C++</li>
-        <li>SQL</li>
+      <li>HTML</li>
+      <li>Python</li>
+      <li>C</li>
+      <li>C++</li>
+      <li>SQL</li>
     </ul>
 
     <h2>Projects</h2>
-<ul>
-  <li>Portfolio Website (this one!)</li>
-  <li>Other Projects Coming Soon</li>
-</ul>
+    <ul>
+      <li>Portfolio Website (this one!)</li>
+      <li>Other Projects Coming Soon</li>
+    </ul>
 
     <h2>Contact</h2>
     <p>Email: carolinebuela@gmail.com</p>
     <p>Profile: https://www.linkedin.com/in/caroline-buela-b60636380</p>
 
-    <form action="https://formspree.io/f/xkgbabcd" method="POST">
+    <!-- CONTACT FORM -->
+    <form id="contact-form">
 
-  <input type="text" name="name" placeholder="Your Name" required>
+      <input type="text" id="name" name="name" placeholder="Your Name" required>
 
-  <input type="email" name="email" placeholder="Your Email" required>
+      <input type="email" id="email" name="email" placeholder="Your Email" required>
 
-  <textarea name="message" placeholder="Your Message" required></textarea>
+      <textarea id="message" name="message" placeholder="Your Message" required></textarea>
 
-  <button type="submit">Send</button>
+      <button type="submit">Send</button>
 
-</form>
+    </form>
 
-</section>
+  </section>
+
+  <!-- SCRIPT -->
+  <script>
+    document.getElementById("contact-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const data = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        message: document.getElementById("message").value
+      };
+
+      fetch("http://localhost:3000/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      })
+      .then(res => res.text())
+      .then(data => {
+        alert(data);
+        document.getElementById("contact-form").reset();
+      })
+      .catch(err => console.log(err));
+    });
+  </script>
 
 </body>
 </html>
